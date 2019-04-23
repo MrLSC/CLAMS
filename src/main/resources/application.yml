@@ -1,0 +1,26 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /clams
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/nnwrj?characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:com/winconlab/clams/mapper/*.xml
+  type-aliases-package: com.winconlab.clams.pojo
+
+logging:
+  level:
+    com.nnwrj.appadmin.mapper: debug
