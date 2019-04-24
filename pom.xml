@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nnwrj</groupId>
-    <artifactId>appadmin</artifactId>
+    <groupId>com.winconlab</groupId>
+    <artifactId>clams</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>appadmin</name>
-    <description>NNWRJ AppAdmin project</description>
+    <name>clams</name>
+    <description>CLAMS实验动物监测系统</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
