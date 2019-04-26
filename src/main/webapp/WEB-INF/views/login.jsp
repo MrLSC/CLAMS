@@ -15,6 +15,7 @@
             text-align: center;
             font-size: 0px;
         }
+
         .box {
             font-size: 16px;
             display: inline-block;
@@ -27,9 +28,9 @@
 <body>
 <div class="wp">
     <div class="box">
-        <form action="">
+        <form action="/clams/sysuser/login" method="post">
             <div> 用户名:<input name="username" type="text"/></div>
-            <div> 密　码:<input name="username" type="text"/></div>
+            <div> 密　码:<input name="password" type="text"/></div>
             <div><input type="submit"/></div>
         </form>
     </div>

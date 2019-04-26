@@ -13,6 +13,18 @@ public class SysUser {
 
     private String locked;
 
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id='" + id + '\'' +
+                ", usercode='" + usercode + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", locked='" + locked + '\'' +
+                '}';
+    }
+
     public String getId() {
         return id;
     }
