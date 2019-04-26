@@ -79,16 +79,19 @@ public class WebConfig implements WebMvcConfigurer {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         //游客，开发权限
         filterChainDefinitionMap.put("/guest/**", "anon");
+        //开放登陆接口
+        filterChainDefinitionMap.put("/**/login", "anon");
+        filterChainDefinitionMap.put("/**/register/**", "anon");
         //用户，需要角色权限 “user”
         filterChainDefinitionMap.put("/user/**", "roles[user]");
         //管理员，需要角色权限 “admin”
         filterChainDefinitionMap.put("/admin/**", "roles[admin]");
-        //开放登陆接口
-        filterChainDefinitionMap.put("/**/login", "anon");
-        filterChainDefinitionMap.put("/**/register/**", "anon");
+        //退出操作
+        filterChainDefinitionMap.put("/sysuser/logout", "logout");
         //其余接口一律拦截
         //主要这行代码必须放在所有权限设置的最后，不然会导致所有 url 都被拦截
         filterChainDefinitionMap.put("/**", "authc");
+
 
         filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         System.out.println("Shiro拦截器工厂类注入成功");
@@ -116,7 +119,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ClamsRealm clamsRealm(
             @Qualifier("hashedCredentialsMatcher") HashedCredentialsMatcher matcher,
-            @Qualifier("ehCacheManager") EhCacheManager  ehCacheManager) {
+            @Qualifier("ehCacheManager") EhCacheManager ehCacheManager) {
         ClamsRealm myAuthorizingRealm = new ClamsRealm();
         // 设置密码凭证匹配器
         myAuthorizingRealm.setCredentialsMatcher(matcher); // myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
@@ -150,6 +153,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     /**
      * 缓存管理器
+     *
      * @return
      */
     @Bean

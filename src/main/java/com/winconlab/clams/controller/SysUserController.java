@@ -40,26 +40,21 @@ public class SysUserController {
 
     @RequestMapping("/login")
     private String login(SysUser user) {
-//        SysUser sysUser = sysUserService.findSysUserByUsername(user.getUsername());
-//        if (sysUser == null)
-//            return "/login";
-//        else {
-//            if (UserUtil.verifyUserPassword(user.getPassword(), sysUser.getSalt(), sysUser.getPassword())) {
-//                return "/index";
-//            } else return "/notAuth";
-//        }
-
-
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         try {
             subject.login(token);
         } catch (AuthenticationException e) {
             System.out.println(e.getMessage());
-            return "/notAuth";
+            return "redirect:/notAuth";
         }
 
-        return "/index";
+        return "redirect:/index";
+    }
+
+    @RequestMapping("/logout")
+    private String logout() {
+        return "redirect:/page/login";
     }
 
 }

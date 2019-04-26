@@ -12,5 +12,6 @@
 </head>
 <body>
 Welcome to CLAMS
+<a href="/clams/sysuser/logout" style="background-color: red">退出</a>
 </body>
 </html>
