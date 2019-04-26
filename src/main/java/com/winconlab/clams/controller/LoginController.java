@@ -1,0 +1,16 @@
+package com.winconlab.clams.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class LoginController {
+
+    @RequestMapping("/loginjsp")
+    public String loginJsp() {
+        return "login";
+    }
+
+
+
+}
