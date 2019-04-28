@@ -1,18 +1,18 @@
 package com.winconlab.clams.pojo;
 
 public class SysUserRole {
-    private String id;
+    private String userRoleId;
 
     private String sysUserId;
 
     private String sysRoleId;
 
-    public String getId() {
-        return id;
+    public String getUserRoleId() {
+        return userRoleId;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setUserRoleId(String userRoleId) {
+        this.userRoleId = userRoleId == null ? null : userRoleId.trim();
     }
 
     public String getSysUserId() {

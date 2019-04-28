@@ -104,73 +104,73 @@ public class SysRolePermissionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andRolePermIdIsNull() {
+            addCriterion("role_perm_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andRolePermIdIsNotNull() {
+            addCriterion("role_perm_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
-            addCriterion("id =", value, "id");
+        public Criteria andRolePermIdEqualTo(String value) {
+            addCriterion("role_perm_id =", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andRolePermIdNotEqualTo(String value) {
+            addCriterion("role_perm_id <>", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
-            addCriterion("id >", value, "id");
+        public Criteria andRolePermIdGreaterThan(String value) {
+            addCriterion("role_perm_id >", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andRolePermIdGreaterThanOrEqualTo(String value) {
+            addCriterion("role_perm_id >=", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
-            addCriterion("id <", value, "id");
+        public Criteria andRolePermIdLessThan(String value) {
+            addCriterion("role_perm_id <", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andRolePermIdLessThanOrEqualTo(String value) {
+            addCriterion("role_perm_id <=", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
+        public Criteria andRolePermIdLike(String value) {
+            addCriterion("role_perm_id like", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
+        public Criteria andRolePermIdNotLike(String value) {
+            addCriterion("role_perm_id not like", value, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<String> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andRolePermIdIn(List<String> values) {
+            addCriterion("role_perm_id in", values, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andRolePermIdNotIn(List<String> values) {
+            addCriterion("role_perm_id not in", values, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andRolePermIdBetween(String value1, String value2) {
+            addCriterion("role_perm_id between", value1, value2, "rolePermId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andRolePermIdNotBetween(String value1, String value2) {
+            addCriterion("role_perm_id not between", value1, value2, "rolePermId");
             return (Criteria) this;
         }
 

@@ -1,18 +1,18 @@
 package com.winconlab.clams.pojo;
 
 public class SysRolePermission {
-    private String id;
+    private String rolePermId;
 
     private String sysRoleId;
 
     private String sysPermissionId;
 
-    public String getId() {
-        return id;
+    public String getRolePermId() {
+        return rolePermId;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setRolePermId(String rolePermId) {
+        this.rolePermId = rolePermId == null ? null : rolePermId.trim();
     }
 
     public String getSysRoleId() {

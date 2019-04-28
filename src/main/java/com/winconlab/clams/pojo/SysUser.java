@@ -1,7 +1,7 @@
 package com.winconlab.clams.pojo;
 
 public class SysUser {
-    private String id;
+    private String userId;
 
     private String usercode;
 
@@ -13,24 +13,12 @@ public class SysUser {
 
     private String locked;
 
-    @Override
-    public String toString() {
-        return "SysUser{" +
-                "id='" + id + '\'' +
-                ", usercode='" + usercode + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                ", locked='" + locked + '\'' +
-                '}';
+    public String getUserId() {
+        return userId;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
     public String getUsercode() {

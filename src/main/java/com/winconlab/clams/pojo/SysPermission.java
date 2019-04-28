@@ -1,7 +1,7 @@
 package com.winconlab.clams.pojo;
 
 public class SysPermission {
-    private Long id;
+    private Long permissionId;
 
     private String name;
 
@@ -19,12 +19,12 @@ public class SysPermission {
 
     private String available;
 
-    public Long getId() {
-        return id;
+    public Long getPermissionId() {
+        return permissionId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
     }
 
     public String getName() {

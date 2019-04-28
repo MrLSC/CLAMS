@@ -104,73 +104,73 @@ public class SysUserRoleExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andUserRoleIdIsNull() {
+            addCriterion("user_role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andUserRoleIdIsNotNull() {
+            addCriterion("user_role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
-            addCriterion("id =", value, "id");
+        public Criteria andUserRoleIdEqualTo(String value) {
+            addCriterion("user_role_id =", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andUserRoleIdNotEqualTo(String value) {
+            addCriterion("user_role_id <>", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
-            addCriterion("id >", value, "id");
+        public Criteria andUserRoleIdGreaterThan(String value) {
+            addCriterion("user_role_id >", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andUserRoleIdGreaterThanOrEqualTo(String value) {
+            addCriterion("user_role_id >=", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
-            addCriterion("id <", value, "id");
+        public Criteria andUserRoleIdLessThan(String value) {
+            addCriterion("user_role_id <", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andUserRoleIdLessThanOrEqualTo(String value) {
+            addCriterion("user_role_id <=", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
+        public Criteria andUserRoleIdLike(String value) {
+            addCriterion("user_role_id like", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
+        public Criteria andUserRoleIdNotLike(String value) {
+            addCriterion("user_role_id not like", value, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<String> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andUserRoleIdIn(List<String> values) {
+            addCriterion("user_role_id in", values, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andUserRoleIdNotIn(List<String> values) {
+            addCriterion("user_role_id not in", values, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andUserRoleIdBetween(String value1, String value2) {
+            addCriterion("user_role_id between", value1, value2, "userRoleId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andUserRoleIdNotBetween(String value1, String value2) {
+            addCriterion("user_role_id not between", value1, value2, "userRoleId");
             return (Criteria) this;
         }
 

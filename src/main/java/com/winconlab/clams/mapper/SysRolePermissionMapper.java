@@ -11,7 +11,7 @@ public interface SysRolePermissionMapper {
 
     int deleteByExample(SysRolePermissionExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(String rolePermId);
 
     int insert(SysRolePermission record);
 
@@ -19,7 +19,7 @@ public interface SysRolePermissionMapper {
 
     List<SysRolePermission> selectByExample(SysRolePermissionExample example);
 
-    SysRolePermission selectByPrimaryKey(String id);
+    SysRolePermission selectByPrimaryKey(String rolePermId);
 
     int updateByExampleSelective(@Param("record") SysRolePermission record, @Param("example") SysRolePermissionExample example);
 

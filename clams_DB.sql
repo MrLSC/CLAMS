@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.5.27 : Database - clams
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -21,7 +22,7 @@ USE `clams`;
 DROP TABLE IF EXISTS `sys_permission`;
 
 CREATE TABLE `sys_permission` (
-  `id` bigint(20) NOT NULL COMMENT '主键',
+  `permission_id` bigint(20) NOT NULL COMMENT '主键',
   `name` varchar(128) NOT NULL COMMENT '资源名称',
   `type` varchar(32) NOT NULL COMMENT '资源类型：menu,button,',
   `url` varchar(128) DEFAULT NULL COMMENT '访问url地址',
@@ -30,7 +31,7 @@ CREATE TABLE `sys_permission` (
   `parentids` varchar(128) DEFAULT NULL COMMENT '父结点id列表串',
   `sortstring` varchar(128) DEFAULT NULL COMMENT '排序号',
   `available` char(1) DEFAULT NULL COMMENT '是否可用,1：可用，0不可用',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sys_role` */
@@ -38,10 +39,10 @@ CREATE TABLE `sys_permission` (
 DROP TABLE IF EXISTS `sys_role`;
 
 CREATE TABLE `sys_role` (
-  `id` varchar(36) NOT NULL,
+  `role_id` varchar(36) NOT NULL,
   `name` varchar(128) NOT NULL,
   `available` char(1) DEFAULT NULL COMMENT '是否可用,1：可用，0不可用',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sys_role_permission` */
@@ -49,10 +50,10 @@ CREATE TABLE `sys_role` (
 DROP TABLE IF EXISTS `sys_role_permission`;
 
 CREATE TABLE `sys_role_permission` (
-  `id` varchar(36) NOT NULL,
+  `role_perm_id` varchar(36) NOT NULL,
   `sys_role_id` varchar(32) NOT NULL COMMENT '角色id',
   `sys_permission_id` varchar(32) NOT NULL COMMENT '权限id',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`role_perm_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sys_user` */
@@ -60,13 +61,13 @@ CREATE TABLE `sys_role_permission` (
 DROP TABLE IF EXISTS `sys_user`;
 
 CREATE TABLE `sys_user` (
-  `id` varchar(36) NOT NULL COMMENT '主键',
+  `user_id` varchar(36) NOT NULL COMMENT '主键',
   `usercode` varchar(32) NOT NULL COMMENT '账号',
   `username` varchar(64) NOT NULL COMMENT '姓名',
   `password` varchar(32) NOT NULL COMMENT '密码',
   `salt` varchar(64) DEFAULT NULL COMMENT '盐',
   `locked` char(1) DEFAULT NULL COMMENT '账号是否锁定，1：锁定，0未锁定',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `sys_user_role` */
@@ -74,10 +75,10 @@ CREATE TABLE `sys_user` (
 DROP TABLE IF EXISTS `sys_user_role`;
 
 CREATE TABLE `sys_user_role` (
-  `id` varchar(36) NOT NULL,
+  `user_role_id` varchar(36) NOT NULL,
   `sys_user_id` varchar(32) NOT NULL,
   `sys_role_id` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `user` */

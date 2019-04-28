@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.winconlab.clams.mapper.SysRolePermissionMapper" >
   <resultMap id="BaseResultMap" type="com.winconlab.clams.pojo.SysRolePermission" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="role_perm_id" property="rolePermId" jdbcType="VARCHAR" />
     <result column="sys_role_id" property="sysRoleId" jdbcType="VARCHAR" />
     <result column="sys_permission_id" property="sysPermissionId" jdbcType="VARCHAR" />
   </resultMap>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, sys_role_id, sys_permission_id
+    role_perm_id, sys_role_id, sys_permission_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.winconlab.clams.pojo.SysRolePermissionExample" >
     select
@@ -85,11 +85,11 @@
     select 
     <include refid="Base_Column_List" />
     from sys_role_permission
-    where id = #{id,jdbcType=VARCHAR}
+    where role_perm_id = #{rolePermId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from sys_role_permission
-    where id = #{id,jdbcType=VARCHAR}
+    where role_perm_id = #{rolePermId,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.winconlab.clams.pojo.SysRolePermissionExample" >
     delete from sys_role_permission
@@ -98,16 +98,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.winconlab.clams.pojo.SysRolePermission" >
-    insert into sys_role_permission (id, sys_role_id, sys_permission_id
+    insert into sys_role_permission (role_perm_id, sys_role_id, sys_permission_id
       )
-    values (#{id,jdbcType=VARCHAR}, #{sysRoleId,jdbcType=VARCHAR}, #{sysPermissionId,jdbcType=VARCHAR}
+    values (#{rolePermId,jdbcType=VARCHAR}, #{sysRoleId,jdbcType=VARCHAR}, #{sysPermissionId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.winconlab.clams.pojo.SysRolePermission" >
     insert into sys_role_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="rolePermId != null" >
+        role_perm_id,
       </if>
       <if test="sysRoleId != null" >
         sys_role_id,
@@ -117,8 +117,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+      <if test="rolePermId != null" >
+        #{rolePermId,jdbcType=VARCHAR},
       </if>
       <if test="sysRoleId != null" >
         #{sysRoleId,jdbcType=VARCHAR},
@@ -137,8 +137,8 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update sys_role_permission
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+      <if test="record.rolePermId != null" >
+        role_perm_id = #{record.rolePermId,jdbcType=VARCHAR},
       </if>
       <if test="record.sysRoleId != null" >
         sys_role_id = #{record.sysRoleId,jdbcType=VARCHAR},
@@ -153,7 +153,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update sys_role_permission
-    set id = #{record.id,jdbcType=VARCHAR},
+    set role_perm_id = #{record.rolePermId,jdbcType=VARCHAR},
       sys_role_id = #{record.sysRoleId,jdbcType=VARCHAR},
       sys_permission_id = #{record.sysPermissionId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -170,12 +170,12 @@
         sys_permission_id = #{sysPermissionId,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where role_perm_id = #{rolePermId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.winconlab.clams.pojo.SysRolePermission" >
     update sys_role_permission
     set sys_role_id = #{sysRoleId,jdbcType=VARCHAR},
       sys_permission_id = #{sysPermissionId,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    where role_perm_id = #{rolePermId,jdbcType=VARCHAR}
   </update>
 </mapper>

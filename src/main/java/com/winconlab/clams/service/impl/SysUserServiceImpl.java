@@ -40,7 +40,7 @@ public class SysUserServiceImpl implements SysUserService {
         SysUserExample sysUserExample = new SysUserExample();
         int sys_user_count = sysUserMapper.countByExample(sysUserExample);
 
-        user.setId(UUID.randomUUID().toString());
+        user.setUserId(UUID.randomUUID().toString());
         user.setUsercode(UserUtil.generateUserCode(sys_user_count));
         user.setSalt(UserUtil.generatePasswordSalt());
         user.setLocked("0");
