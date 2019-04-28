@@ -12,7 +12,7 @@ spring:
       charset: UTF-8
       enabled: true
   datasource:
-    url: jdbc:mysql://119.29.160.254:3306/clams?characterEncoding=UTF-8
+    url: jdbc:mysql://119.29.160.254:3306/nnwrj?characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
