@@ -32,6 +32,7 @@
             <div> 用户名:<input name="username" type="text"/></div>
             <div> 密　码:<input name="password" type="text"/></div>
             <div><input type="submit"/></div>
+            <div>${error_msg}</div>
         </form>
     </div>
 </div>

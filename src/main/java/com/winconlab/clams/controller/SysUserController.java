@@ -3,16 +3,17 @@ package com.winconlab.clams.controller;
 import com.winconlab.clams.exception.SysUserException;
 import com.winconlab.clams.pojo.SysUser;
 import com.winconlab.clams.service.SysUserService;
-import com.winconlab.clams.utils.UserUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/sysuser")
@@ -39,17 +40,22 @@ public class SysUserController {
     }
 
     @RequestMapping("/login")
-    private String login(SysUser user) {
+    private ModelAndView login(ModelAndView modelAndView, HttpServletRequest request, SysUser user) {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         try {
             subject.login(token);
         } catch (AuthenticationException e) {
-            System.out.println(e.getMessage());
-            return "redirect:/notAuth";
+            String error_msg = e.getMessage();
+            if (error_msg.contains("did not match the expected credentials"))
+                error_msg = "账号/密码错误";
+            modelAndView.addObject("error_msg", error_msg);
+            modelAndView.setViewName("/login");
+            return modelAndView;
         }
 
-        return "redirect:/index";
+        modelAndView.setViewName("redirect:/page/index");
+        return modelAndView;
     }
 
     @RequestMapping("/logout")
