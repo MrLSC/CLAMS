@@ -18,7 +18,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
     /**
-     * shiro相关配置
+     * shiro拦截器注入
      */
     @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
