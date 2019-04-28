@@ -7,6 +7,12 @@ public class SysUserRole {
 
     private String sysRoleId;
 
+    public SysUserRole(String userRoleId, String sysUserId, String sysRoleId) {
+        this.userRoleId = userRoleId;
+        this.sysUserId = sysUserId;
+        this.sysRoleId = sysRoleId;
+    }
+
     public String getUserRoleId() {
         return userRoleId;
     }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     @RequestMapping("/{page}")
-    private String showPage(@PathVariable String page) {
+    public String showPage(@PathVariable String page) {
         return page;
     }
 }

@@ -2,6 +2,8 @@ package com.winconlab.clams.controller;
 
 import com.winconlab.clams.exception.SysUserException;
 import com.winconlab.clams.pojo.SysUser;
+import com.winconlab.clams.service.SysPermissionService;
+import com.winconlab.clams.service.SysRoleService;
 import com.winconlab.clams.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -21,6 +23,10 @@ public class SysUserController {
 
     @Autowired
     private SysUserService sysUserService;
+    @Autowired
+    private SysRoleService sysRoleService;
+    @Autowired
+    private SysPermissionService sysPermissionService;
 
     @ResponseBody
     @RequestMapping("/register")
@@ -61,6 +67,29 @@ public class SysUserController {
     @RequestMapping("/logout")
     private String logout() {
         return "redirect:/page/login";
+    }
+
+    @RequestMapping("/addRole")
+    @ResponseBody
+    private String addRole(String userid, String roles_id) {
+        try {
+            sysRoleService.addRolesToUser(userid, roles_id);
+        } catch (SysUserException e) {
+            return e.getMessage();
+        }
+
+        return "success";
+    }
+
+    @RequestMapping("/addPermission")
+    @ResponseBody
+    private String addPermission(String userid, String permissions_id) {
+        try {
+            sysPermissionService.addPermissionsToRole(userid, permissions_id);
+        } catch (SysUserException e) {
+            return e.getMessage();
+        }
+        return "success";
     }
 
 }

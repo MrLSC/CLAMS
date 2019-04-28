@@ -1,16 +1,20 @@
 package com.winconlab.clams.service.impl;
 
 import com.winconlab.clams.exception.SysUserException;
+import com.winconlab.clams.mapper.SysRoleMapper;
 import com.winconlab.clams.mapper.SysUserMapper;
-import com.winconlab.clams.pojo.SysUser;
-import com.winconlab.clams.pojo.SysUserExample;
+import com.winconlab.clams.mapper.SysUserRoleMapper;
+import com.winconlab.clams.pojo.*;
 import com.winconlab.clams.service.SysUserService;
+import com.winconlab.clams.utils.IdUtil;
 import com.winconlab.clams.utils.RandomUtil;
 import com.winconlab.clams.utils.UserUtil;
 import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -20,6 +24,12 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
+
+    @Autowired
+    private SysRoleMapper sysRoleMapper;
+
+    @Autowired
+    private SysUserRoleMapper sysUserRoleMapper;
 
     @Override
     public SysUser findSysUserByUsername(String username) {
@@ -40,7 +50,7 @@ public class SysUserServiceImpl implements SysUserService {
         SysUserExample sysUserExample = new SysUserExample();
         int sys_user_count = sysUserMapper.countByExample(sysUserExample);
 
-        user.setUserId(UUID.randomUUID().toString());
+        user.setUserId(IdUtil.generateUUID());
         user.setUsercode(UserUtil.generateUserCode(sys_user_count));
         user.setSalt(UserUtil.generatePasswordSalt());
         user.setLocked("0");
@@ -60,4 +70,7 @@ public class SysUserServiceImpl implements SysUserService {
     public void updateSysUser(SysUser user) {
 
     }
+
+
+
 }

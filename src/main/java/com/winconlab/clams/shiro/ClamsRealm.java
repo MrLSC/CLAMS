@@ -15,6 +15,7 @@ public class ClamsRealm extends AuthorizingRealm {
     @Autowired
     private SysUserService sysUserService;
 
+
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
@@ -25,7 +26,7 @@ public class ClamsRealm extends AuthorizingRealm {
         if (sysUser.getLocked().equals("1"))
             throw new AuthenticationException("账号被锁定");
 
-        return new SimpleAuthenticationInfo(sysUser.getUsername(), sysUser.getPassword(), ByteSource.Util.bytes(sysUser.getSalt()), getName());
+        return new SimpleAuthenticationInfo(sysUser, sysUser.getPassword(), ByteSource.Util.bytes(sysUser.getSalt()), getName());
     }
 
     @Override
