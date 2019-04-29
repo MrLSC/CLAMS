@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -30,7 +32,13 @@ public class ShiroConfig {
         // 设置无权限时跳转的 url;
         filterFactoryBean.setUnauthorizedUrl("/page/notAuth");
 
-        // 设置拦截器
+        //RolesAuthorizationFilter
+        //PermissionsAuthorizationFilter;
+        //添加自定义拦截器
+        Map<String, Filter> filterMap = new HashMap<>();
+        filterMap.put("roles", new CustomRolesAuthorizationFilter());
+
+        //添加拦截器拦截规则
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         //游客，开发权限
         filterChainDefinitionMap.put("/guest/**", "anon");
@@ -38,10 +46,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/**/login", "anon");
         filterChainDefinitionMap.put("/**/register/**", "anon");
         filterChainDefinitionMap.put("/**/error_page/**", "anon");
-        //用户，需要角色权限 “user”
-        filterChainDefinitionMap.put("/user/**", "roles[user]");
+
         //管理员，需要角色权限 “admin”
-        filterChainDefinitionMap.put("/admin/**", "roles[admin]");
         filterChainDefinitionMap.put("/page/need_role", "roles[admin,user]");
         //退出操作
         filterChainDefinitionMap.put("/sysuser/logout", "logout");
@@ -51,8 +57,19 @@ public class ShiroConfig {
 
 
         filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        filterFactoryBean.setFilters(filterMap);
         System.out.println("Shiro拦截器工厂类注入成功");
         return filterFactoryBean;
+    }
+
+
+    /**
+     * 自定义角色访问控制拦截器
+     * @return
+     */
+    @Bean
+    public CustomRolesAuthorizationFilter customRolesAuthorizationFilter() {
+        return new CustomRolesAuthorizationFilter();
     }
 
     /**
