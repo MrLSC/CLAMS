@@ -42,6 +42,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/user/**", "roles[user]");
         //管理员，需要角色权限 “admin”
         filterChainDefinitionMap.put("/admin/**", "roles[admin]");
+        filterChainDefinitionMap.put("/page/need_role", "roles[admin,user]");
         //退出操作
         filterChainDefinitionMap.put("/sysuser/logout", "logout");
         //其余接口一律拦截

@@ -1,6 +1,6 @@
 package com.winconlab.clams.controller;
 
-import com.winconlab.clams.exception.SysUserException;
+import com.winconlab.clams.exception.CustomMsgException;
 import com.winconlab.clams.pojo.SysUser;
 import com.winconlab.clams.service.SysPermissionService;
 import com.winconlab.clams.service.SysRoleService;
@@ -38,7 +38,7 @@ public class SysUserController {
 
         try {
             sysUserService.addSysUser(sysUser);
-        } catch (SysUserException e) {
+        } catch (CustomMsgException e) {
             return e.getMessage();
         }
 
@@ -74,7 +74,7 @@ public class SysUserController {
     private String addRole(String userid, String roles_id) {
         try {
             sysRoleService.addRolesToUser(userid, roles_id);
-        } catch (SysUserException e) {
+        } catch (CustomMsgException e) {
             return e.getMessage();
         }
 
@@ -86,7 +86,7 @@ public class SysUserController {
     private String addPermission(String userid, String permissions_id) {
         try {
             sysPermissionService.addPermissionsToRole(userid, permissions_id);
-        } catch (SysUserException e) {
+        } catch (CustomMsgException e) {
             return e.getMessage();
         }
         return "success";

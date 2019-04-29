@@ -1,15 +1,20 @@
 package com.winconlab.clams.service;
 
-import com.winconlab.clams.exception.SysUserException;
+import com.winconlab.clams.exception.CustomMsgException;
 import com.winconlab.clams.pojo.SysPermission;
+import com.winconlab.clams.pojo.SysRolePermission;
+
+import java.util.List;
 
 public interface SysPermissionService {
 
-    void findPermissionsByRoleId(String sysRoleId);
+    List<SysRolePermission> findPermissionsByRoleId(String sysRoleId);
 
-    void addPermissionsToRole(String sysRoleId, String sysPermissionId) throws SysUserException;
+    SysPermission findPermissionByPermissionId(String permissionId);
 
-    void addPermission(SysPermission sysPermission);
+    void addPermissionsToRole(String sysRoleId, String sysPermissionId) throws CustomMsgException;
+
+    void addPermission(SysPermission sysPermission) throws CustomMsgException;
 
     void updatePermission(SysPermission sysPermission);
 

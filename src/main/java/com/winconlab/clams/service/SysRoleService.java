@@ -1,6 +1,6 @@
 package com.winconlab.clams.service;
 
-import com.winconlab.clams.exception.SysUserException;
+import com.winconlab.clams.exception.CustomMsgException;
 import com.winconlab.clams.pojo.SysRole;
 import com.winconlab.clams.pojo.SysUserRole;
 
@@ -10,9 +10,11 @@ public interface SysRoleService {
 
     List<SysUserRole> findRolesByUserId(String sysUserId);
 
-    void addRolesToUser(String sysuserId, String sysRoleId) throws SysUserException;
+    SysRole findRoleByRoleId(String roleId);
 
-    void addRole(SysRole sysRole) throws SysUserException;
+    void addRolesToUser(String sysuserId, String sysRoleId) throws CustomMsgException;
+
+    void addRole(SysRole sysRole) throws CustomMsgException;
 
     void updateRole(SysRole sysRole);
 

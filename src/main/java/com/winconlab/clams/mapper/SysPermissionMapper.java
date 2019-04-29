@@ -11,7 +11,7 @@ public interface SysPermissionMapper {
 
     int deleteByExample(SysPermissionExample example);
 
-    int deleteByPrimaryKey(Long permissionId);
+    int deleteByPrimaryKey(String permissionId);
 
     int insert(SysPermission record);
 
@@ -19,7 +19,7 @@ public interface SysPermissionMapper {
 
     List<SysPermission> selectByExample(SysPermissionExample example);
 
-    SysPermission selectByPrimaryKey(Long permissionId);
+    SysPermission selectByPrimaryKey(String permissionId);
 
     int updateByExampleSelective(@Param("record") SysPermission record, @Param("example") SysPermissionExample example);
 

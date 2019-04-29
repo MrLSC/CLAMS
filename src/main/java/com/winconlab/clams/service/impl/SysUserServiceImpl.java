@@ -1,23 +1,17 @@
 package com.winconlab.clams.service.impl;
 
-import com.winconlab.clams.exception.SysUserException;
+import com.winconlab.clams.exception.CustomMsgException;
 import com.winconlab.clams.mapper.SysRoleMapper;
 import com.winconlab.clams.mapper.SysUserMapper;
 import com.winconlab.clams.mapper.SysUserRoleMapper;
 import com.winconlab.clams.pojo.*;
 import com.winconlab.clams.service.SysUserService;
 import com.winconlab.clams.utils.IdUtil;
-import com.winconlab.clams.utils.RandomUtil;
 import com.winconlab.clams.utils.UserUtil;
-import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -39,13 +33,13 @@ public class SysUserServiceImpl implements SysUserService {
         List<SysUser> sysUsers = sysUserMapper.selectByExample(sysUserExample);
         if (sysUsers != null && sysUsers.size() > 0)
             return sysUsers.get(0);
-        else return null;
+        return null;
     }
 
     @Override
-    public void addSysUser(SysUser user) throws SysUserException {
+    public void addSysUser(SysUser user) throws CustomMsgException {
         if (findSysUserByUsername(user.getUsername()) != null)
-            throw new SysUserException("用户名重复");
+            throw new CustomMsgException("用户名重复");
 
         SysUserExample sysUserExample = new SysUserExample();
         int sys_user_count = sysUserMapper.countByExample(sysUserExample);
@@ -70,7 +64,6 @@ public class SysUserServiceImpl implements SysUserService {
     public void updateSysUser(SysUser user) {
 
     }
-
 
 
 }

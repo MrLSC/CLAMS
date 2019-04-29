@@ -1,6 +1,8 @@
 package com.winconlab.clams.pojo;
 
-public class SysUser {
+import java.io.Serializable;
+
+public class SysUser implements Serializable {
     private String userId;
 
     private String usercode;
@@ -12,6 +14,18 @@ public class SysUser {
     private String salt;
 
     private String locked;
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "userId='" + userId + '\'' +
+                ", usercode='" + usercode + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", locked='" + locked + '\'' +
+                '}';
+    }
 
     public String getUserId() {
         return userId;
