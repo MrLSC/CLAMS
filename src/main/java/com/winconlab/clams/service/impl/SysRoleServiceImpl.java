@@ -45,7 +45,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     public void addRolesToUser(String sysuserId, String sysRolesId) throws CustomMsgException {
         if (StringUtils.isEmpty(sysuserId) && StringUtils.isEmpty(sysRolesId))
-            throw new CustomMsgException("用户不存在或权限id为空");
+            throw new CustomMsgException("用户不存在或角色id为空");
         String[] roles = sysRolesId.split(",");
         for (String sysRoleId : roles) {
             SysUserRole sysUserRole = new SysUserRole(IdUtil.generateUUID(), sysuserId, sysRoleId);

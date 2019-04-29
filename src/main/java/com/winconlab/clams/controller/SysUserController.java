@@ -68,28 +68,4 @@ public class SysUserController {
     private String logout() {
         return "redirect:/page/login";
     }
-
-    @RequestMapping("/addRole")
-    @ResponseBody
-    private String addRole(String userid, String roles_id) {
-        try {
-            sysRoleService.addRolesToUser(userid, roles_id);
-        } catch (CustomMsgException e) {
-            return e.getMessage();
-        }
-
-        return "success";
-    }
-
-    @RequestMapping("/addPermission")
-    @ResponseBody
-    private String addPermission(String userid, String permissions_id) {
-        try {
-            sysPermissionService.addPermissionsToRole(userid, permissions_id);
-        } catch (CustomMsgException e) {
-            return e.getMessage();
-        }
-        return "success";
-    }
-
 }

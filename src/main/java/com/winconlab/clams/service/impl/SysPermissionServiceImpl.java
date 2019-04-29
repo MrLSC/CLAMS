@@ -46,9 +46,9 @@ public class SysPermissionServiceImpl implements SysPermissionService {
     @Override
     public void addPermissionsToRole(String sysRoleId, String sysPermissionsId) throws CustomMsgException {
         if (StringUtils.isEmpty(sysRoleId) && StringUtils.isEmpty(sysPermissionsId))
-            throw new CustomMsgException("用户不存在或权限id为空");
-        String[] roles = sysPermissionsId.split(",");
-        for (String permission_id : roles) {
+            throw new CustomMsgException("角色不存在或权限id为空");
+        String[] permissions = sysPermissionsId.split(",");
+        for (String permission_id : permissions) {
             SysRolePermission sysUserRole = new SysRolePermission(IdUtil.generateUUID(), sysRoleId, permission_id);
             sysRolePermissionMapper.insert(sysUserRole);
         }

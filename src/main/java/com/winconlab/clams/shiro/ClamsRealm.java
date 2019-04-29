@@ -63,7 +63,7 @@ public class ClamsRealm extends AuthorizingRealm {
                 for (SysRolePermission permission : rolePermissions) {
                     SysPermission sysPermission = sysPermissionService.findPermissionByPermissionId(permission.getSysPermissionId());
                     if (sysPermission == null) continue;
-                    permissions_name.add(sysPermission.getName());
+                    permissions_name.add(role.getName() + ":" + sysPermission.getPercode());
                 }
             }
         }

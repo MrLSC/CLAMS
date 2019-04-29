@@ -23,4 +23,14 @@ public class SysPermissionController {
         }
         return "success";
     }
+
+    @RequestMapping("/addPermsToRole")
+    private String addPermsToRole(String roleId,String permsId){
+        try {
+            sysPermissionService.addPermissionsToRole(roleId, permsId);
+        } catch (CustomMsgException e) {
+            return e.getMessage();
+        }
+        return "success";
+    }
 }

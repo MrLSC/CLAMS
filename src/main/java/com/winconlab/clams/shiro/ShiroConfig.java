@@ -36,19 +36,28 @@ public class ShiroConfig {
         //PermissionsAuthorizationFilter;
         //添加自定义拦截器
         Map<String, Filter> filterMap = new HashMap<>();
-        filterMap.put("roles", new CustomRolesAuthorizationFilter());
+        filterMap.put("roleOr", new RoleOrAuthorizationFilter());
+        filterMap.put("permOr", new PermOrAuthorizationFilter());
 
         //添加拦截器拦截规则
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-        //游客，开发权限
+        //游客权限
         filterChainDefinitionMap.put("/guest/**", "anon");
-        //开放登陆接口
-        filterChainDefinitionMap.put("/**/login", "anon");
-        filterChainDefinitionMap.put("/**/register/**", "anon");
+        //开放的接口
+        filterChainDefinitionMap.put("/sysuser/login", "anon");
+        filterChainDefinitionMap.put("/sysuser/register/**", "anon");
         filterChainDefinitionMap.put("/**/error_page/**", "anon");
 
-        //管理员，需要角色权限 “admin”
-        filterChainDefinitionMap.put("/page/need_role", "roles[admin,user]");
+        //需要角色访问 例如 roles[admin,user] : 配置多个角色需要拥有全部角色才能访问
+        //                rolesOr[admin,user] : 配置多个角色只需其中一个满足即可访问
+        filterChainDefinitionMap.put("/page/need_role", "roles[admin]");
+        filterChainDefinitionMap.put("/page/need_role_or", "roleOr[admin,user]");
+
+        //需要权限访问
+        filterChainDefinitionMap.put("/page/need_permission", "perms[admin:kefangwen]");
+        filterChainDefinitionMap.put("/page/need_permission_or", "permOr[admin:kefangwen,admin:rd]");
+
+
         //退出操作
         filterChainDefinitionMap.put("/sysuser/logout", "logout");
         //其余接口一律拦截
@@ -65,11 +74,12 @@ public class ShiroConfig {
 
     /**
      * 自定义角色访问控制拦截器
+     *
      * @return
      */
     @Bean
-    public CustomRolesAuthorizationFilter customRolesAuthorizationFilter() {
-        return new CustomRolesAuthorizationFilter();
+    public RoleOrAuthorizationFilter customRolesAuthorizationFilter() {
+        return new RoleOrAuthorizationFilter();
     }
 
     /**

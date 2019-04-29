@@ -23,4 +23,16 @@ public class SysRoleController {
         }
         return "success";
     }
+
+    @RequestMapping("/addRoleToUser")
+    private String addRoleToUser(String userId, String roleId) {
+        try {
+            sysRoleService.addRolesToUser(userId, roleId);
+        } catch (CustomMsgException e) {
+            return e.getMessage();
+        }
+        return "success";
+    }
+
+
 }

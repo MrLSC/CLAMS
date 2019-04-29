@@ -5,7 +5,7 @@ import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class CustomRolesAuthorizationFilter extends AuthorizationFilter {
+public class RoleOrAuthorizationFilter extends AuthorizationFilter {
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
         Subject subject = getSubject(request, response);
