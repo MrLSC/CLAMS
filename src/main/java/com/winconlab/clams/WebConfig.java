@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import java.nio.charset.Charset;
 import java.util.List;
 
+@EnableTransactionManagement
 @Configuration
 //@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
