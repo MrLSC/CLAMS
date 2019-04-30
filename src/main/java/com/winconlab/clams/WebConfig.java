@@ -15,7 +15,6 @@ import java.util.List;
 
 @EnableTransactionManagement
 @Configuration
-@EnableTransactionManagement
 //@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
