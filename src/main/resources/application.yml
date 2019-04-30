@@ -16,11 +16,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
 
 mybatis:
   mapper-locations: classpath:com/winconlab/clams/mapper/*.xml
   type-aliases-package: com.winconlab.clams.pojo
-
 logging:
-  level:
-    com.nnwrj.appadmin.mapper: debug
+  config: classpath:logback-spring.xml
