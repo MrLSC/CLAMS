@@ -12,6 +12,7 @@ import com.winconlab.clams.utils.IdUtil;
 import com.winconlab.clams.utils.PinYinUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -43,6 +44,7 @@ public class SysPermissionServiceImpl implements SysPermissionService {
         return null;
     }
 
+    @Transactional
     @Override
     public void addPermissionsToRole(String sysRoleId, String sysPermissionsId) throws CustomMsgException {
         if (StringUtils.isEmpty(sysRoleId) && StringUtils.isEmpty(sysPermissionsId))
@@ -54,6 +56,7 @@ public class SysPermissionServiceImpl implements SysPermissionService {
         }
     }
 
+    @Transactional
     @Override
     public void addPermission(SysPermission sysPermission) throws CustomMsgException {
         if (StringUtils.isEmpty(sysPermission.getName()) && StringUtils.isEmpty(sysPermission.getType()))
@@ -64,11 +67,13 @@ public class SysPermissionServiceImpl implements SysPermissionService {
         sysPermissionMapper.insert(sysPermission);
     }
 
+    @Transactional
     @Override
     public void updatePermission(SysPermission sysPermission) {
 
     }
 
+    @Transactional
     @Override
     public void delPermission(String sysPermissionId) {
 

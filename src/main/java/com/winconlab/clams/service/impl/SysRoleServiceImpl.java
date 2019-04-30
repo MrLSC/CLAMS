@@ -11,6 +11,7 @@ import com.winconlab.clams.service.SysRoleService;
 import com.winconlab.clams.utils.IdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -42,6 +43,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         return null;
     }
 
+    @Transactional
     @Override
     public void addRolesToUser(String sysuserId, String sysRolesId) throws CustomMsgException {
         if (StringUtils.isEmpty(sysuserId) && StringUtils.isEmpty(sysRolesId))
@@ -53,6 +55,7 @@ public class SysRoleServiceImpl implements SysRoleService {
         }
     }
 
+    @Transactional
     @Override
     public void addRole(SysRole sysRole) throws CustomMsgException {
         if (StringUtils.isEmpty(sysRole.getName()))
@@ -62,11 +65,13 @@ public class SysRoleServiceImpl implements SysRoleService {
         sysRoleMapper.insert(sysRole);
     }
 
+    @Transactional
     @Override
     public void updateRole(SysRole sysRole) {
 
     }
 
+    @Transactional
     @Override
     public void delRole(String sysRoleId) {
 

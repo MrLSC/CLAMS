@@ -10,6 +10,7 @@ import com.winconlab.clams.utils.IdUtil;
 import com.winconlab.clams.utils.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class SysUserServiceImpl implements SysUserService {
         return null;
     }
 
+    @Transactional
     @Override
     public void addSysUser(SysUser user) throws CustomMsgException {
         if (findSysUserByUsername(user.getUsername()) != null)
@@ -55,11 +57,13 @@ public class SysUserServiceImpl implements SysUserService {
 
     }
 
+    @Transactional
     @Override
     public void delSysUserByUserId(int userId) {
 
     }
 
+    @Transactional
     @Override
     public void updateSysUser(SysUser user) {
 

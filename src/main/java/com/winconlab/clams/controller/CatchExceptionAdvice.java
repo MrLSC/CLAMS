@@ -19,7 +19,8 @@ public class CatchExceptionAdvice {
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public GlobalResult errorHandler(Exception ex) {
-        GlobalResult build = GlobalResult.build(9999, "全局异常:" + ex.getMessage());
+        ex.printStackTrace();
+        GlobalResult build = GlobalResult.build(9999, "全局异常:" + ex.toString() + ":" + ex.getMessage());
         return build;
     }
 }
