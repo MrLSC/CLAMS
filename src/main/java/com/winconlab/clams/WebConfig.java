@@ -13,6 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import java.nio.charset.Charset;
 import java.util.List;
 
+@EnableTransactionManagement
 @Configuration
 @EnableTransactionManagement
 //@EnableWebMvc
