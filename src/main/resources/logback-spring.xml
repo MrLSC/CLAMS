@@ -177,9 +177,7 @@
         <logger name="com.winconlab.clams" level="debug"/>
     </springProfile>
 
-    <logger name="com.winconlab.clams" level="debug">
-        <appender-ref ref="CONSOLE"/>
-    </logger>
+    <logger name="com.winconlab.clams" level="debug" />
 
     <root level="info">
         <appender-ref ref="CONSOLE"/>
