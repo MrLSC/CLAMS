@@ -1,6 +1,8 @@
 package com.winconlab.clams;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import java.nio.charset.Charset;
 import java.util.List;
 
+@EnableAutoConfiguration
+@ComponentScan
 @EnableTransactionManagement
 @Configuration
 //@EnableWebMvc

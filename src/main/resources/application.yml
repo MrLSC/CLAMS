@@ -15,9 +15,9 @@ spring:
       charset: UTF-8
       enabled: true
   datasource:
-    url: jdbc:mysql://119.29.160.254:3306/clams?characterEncoding=UTF-8
-    username: root
-    password: root
+    url: ENC(EIbkObZZOUk2pFLhfE38mItJc9rG3awvJYPIc8clEcaGAVx5AhU/ybfQRmve1bUS+d1IroeEWJ296smK5Zb1l/kZQP1Qo6MU)
+    username: ENC(5CmI6WlRLbj09pVwIxoknw==)
+    password: ENC(KmXsfjzvRKVCGAqGdPDTAQ==)
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
@@ -27,3 +27,8 @@ mybatis:
   type-aliases-package: com.winconlab.clams.pojo
 logging:
   config: classpath:logback-spring.xml
+
+
+jasypt:
+  encryptor:
+    password: ljk
