@@ -15,9 +15,9 @@ spring:
       charset: UTF-8
       enabled: true
   datasource:
-    url: ENC(yNIJ/KYkikytYc4YbCjZP7PRcC0RSMSPJYRm2E04eYvjaDT8YLcySK7aUPXf7RDKUrlKnfpPbWSTpMrs9E4dym6a82D2bziF)
-    username: ENC(hgQv8hA2JYVRaK958b02Z9BRqQQISenW)
-    password: ENC(ixWqQXu6vurCdT1b2WtakXUbJzRZ6EYN)
+    url: ENC(oyus4h54Qq40NRL/YTGo1blvcC1MLvIgrEcyyHWP1z9zp7G+ajwjXnRICzWJ2JI2fOqPx+gTgS1JkefFyUTzzepYnAlcGfRv)
+    username: ENC(GhOltGSrjFjwxFvSzDUcRtZkkdgnRp4W)
+    password: ENC(5icrKkvw8TiVsTl4H4NFL9uDLf/B+tLY)
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
@@ -28,7 +28,3 @@ mybatis:
 logging:
   config: classpath:logback-spring.xml
 
-
-jasypt:
-  encryptor:
-    password: ljk

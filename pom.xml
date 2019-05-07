@@ -139,11 +139,13 @@
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>2.0.0</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.github.ulisesbocchio</groupId>-->
-            <!--<artifactId>jasypt-spring-boot</artifactId>-->
-            <!--<version>2.0.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.li.jasypt</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/JasypEncrpt.jar</systemPath>
+        </dependency>
 
     </dependencies>
 
@@ -164,6 +166,14 @@
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
+            </resource>
+
+            <resource>
+                <directory>lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
             </resource>
         </resources>
 
