@@ -11,46 +11,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctxStatic" value="${pageContext.request.contextPath}/static"/>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<%--<html>--%>
-<%--<head>--%>
-<%--<title>登录</title>--%>
-<%--<style>--%>
-<%--.wp {--%>
-<%--line-height: 300px;--%>
-<%--text-align: center;--%>
-<%--font-size: 0px;--%>
-<%--}--%>
-
-<%--.box {--%>
-<%--font-size: 16px;--%>
-<%--display: inline-block;--%>
-<%--vertical-align: middle;--%>
-<%--line-height: initial;--%>
-<%--text-align: left; /* 修正文字 */--%>
-<%--}--%>
-<%--</style>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<div class="wp">--%>
-<%--<div class="box">--%>
-<%--<form action="/clams/sysuser/login" method="post">--%>
-<%--<div> 用户名:<input name="username" type="text"/></div>--%>
-<%--<div> 密　码:<input name="password" type="text"/></div>--%>
-<%--<div><input type="submit"/></div>--%>
-<%--<div>${error_msg}</div>--%>
-<%--</form>--%>
-<%--</div>--%>
-<%--</div>--%>
-
-
-<%--</body>--%>
-<%--</html>--%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8" name="viewport"
-          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
     <title>欢迎登录</title>
 
     <!--Bootstrap 核心 CSS 文件 -->

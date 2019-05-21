@@ -8,7 +8,7 @@ server:
 spring:
   profiles:
     #dev 开发环境  test 测试环境  prod 生产环境
-    active: dev
+    active: prod
   http:
     encoding:
       force: true
@@ -27,4 +27,10 @@ mybatis:
   type-aliases-package: com.winconlab.clams.pojo
 logging:
   config: classpath:logback-spring.xml
+  path: D:\log\clams
+
+shiro:
+  ehcache:
+    #windows
+    path: D:\develop\ehcache
 

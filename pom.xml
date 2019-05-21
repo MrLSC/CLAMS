@@ -6,6 +6,7 @@
     <groupId>com.winconlab</groupId>
     <artifactId>clams</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <!--<packaging>jar</packaging>-->
     <packaging>war</packaging>
 
     <name>clams</name>
@@ -139,12 +140,13 @@
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>2.0.0</version>
         </dependency>
+        <!--引入本地jar包-->
         <dependency>
             <groupId>com.li.jasypt</groupId>
             <artifactId>util</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/JasypEncrpt.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/JasypEncrpt.jar</systemPath>
         </dependency>
 
     </dependencies>
@@ -154,11 +156,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.2.RELEASE</version>
             </plugin>
         </plugins>
 
-        <!--解决mapper映射文件不拷贝的问题-->
         <resources>
+            <!--解决mapper映射文件不拷贝的问题-->
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
@@ -167,12 +170,26 @@
                 </includes>
                 <filtering>false</filtering>
             </resource>
-
+            <!--解决引入本地jar包问题-->
             <resource>
-                <directory>lib</directory>
+                <directory>src/main/webapp/WEB-INF/lib</directory>
                 <targetPath>BOOT-INF/lib/</targetPath>
                 <includes>
                     <include>**/*.jar</include>
+                </includes>
+            </resource>
+
+            <!--解决打成jar包jsp没被打进去的问题-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <!--注意此次必须要放在此目录下才能被访问到 -->
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/**</include>
                 </includes>
             </resource>
         </resources>
