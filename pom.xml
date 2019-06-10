@@ -149,6 +149,22 @@
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/JasypEncrpt.jar</systemPath>
         </dependency>
 
+        <!-- 集成easypoi组件 .导出excel http://easypoi.mydoc.io/ -->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>
