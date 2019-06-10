@@ -1,0 +1,8 @@
+logging:
+  #linux
+  path: /opt/log/clams
+
+shiro:
+  ehcache:
+    #linux
+    path: /opt/ehcache/clams

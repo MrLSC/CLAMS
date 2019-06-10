@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+
 @Configuration
 public class ShiroConfig {
     /**
@@ -69,17 +70,6 @@ public class ShiroConfig {
         filterFactoryBean.setFilters(filterMap);
         System.out.println("Shiro拦截器工厂类注入成功");
         return filterFactoryBean;
-    }
-
-
-    /**
-     * 自定义角色访问控制拦截器
-     *
-     * @return
-     */
-    @Bean
-    public RoleOrAuthorizationFilter customRolesAuthorizationFilter() {
-        return new RoleOrAuthorizationFilter();
     }
 
     /**
