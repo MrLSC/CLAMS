@@ -34,8 +34,8 @@ public class SysUserController {
     private String register() {
 
         SysUser sysUser = new SysUser();
-        sysUser.setUsername("admin");
-        sysUser.setPassword("@LiShiChao!2019");
+        sysUser.setUsername("zhangsanfeng");
+        sysUser.setPassword("123456");
 
         try {
             sysUserService.addSysUser(sysUser);

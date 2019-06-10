@@ -17,9 +17,9 @@ spring:
       charset: UTF-8
       enabled: true
   datasource:
-    url: ENC(oyus4h54Qq40NRL/YTGo1blvcC1MLvIgrEcyyHWP1z9zp7G+ajwjXnRICzWJ2JI2fOqPx+gTgS1JkefFyUTzzepYnAlcGfRv)
-    username: ENC(GhOltGSrjFjwxFvSzDUcRtZkkdgnRp4W)
-    password: ENC(5icrKkvw8TiVsTl4H4NFL9uDLf/B+tLY)
+    url: jdbc:mysql://119.29.160.254:3306/nnwrj?characterEncoding=UTF-8
+    username: root
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true

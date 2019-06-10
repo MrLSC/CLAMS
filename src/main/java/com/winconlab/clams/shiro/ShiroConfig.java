@@ -1,6 +1,5 @@
 package com.winconlab.clams.shiro;
 
-import com.winconlab.clams.utils.LogBackUtil;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -69,7 +68,7 @@ public class ShiroConfig {
 
         filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         filterFactoryBean.setFilters(filterMap);
-        LogBackUtil.info("Shiro拦截器工厂类注入成功");
+        System.out.println("Shiro拦截器工厂类注入成功");
         return filterFactoryBean;
     }
 

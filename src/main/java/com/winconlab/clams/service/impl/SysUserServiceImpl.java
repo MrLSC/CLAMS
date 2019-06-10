@@ -59,6 +59,7 @@ public class SysUserServiceImpl implements SysUserService {
 
         sysUserMapper.insert(user);
 
+
     }
 
     @Transactional

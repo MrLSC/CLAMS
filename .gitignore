@@ -23,6 +23,3 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-
-###jar###
-/lib/JasypEncrpt.jar
