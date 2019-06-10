@@ -5,6 +5,7 @@ import com.winconlab.clams.pojo.SysUser;
 import com.winconlab.clams.service.SysPermissionService;
 import com.winconlab.clams.service.SysRoleService;
 import com.winconlab.clams.service.SysUserService;
+import com.winconlab.clams.utils.LogBackUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -59,7 +60,7 @@ public class SysUserController {
             modelAndView.setViewName("/login");
             return modelAndView;
         }
-
+        LogBackUtil.debug("登录成功");
         modelAndView.setViewName("redirect:/page/index");
         return modelAndView;
     }

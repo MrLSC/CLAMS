@@ -2,7 +2,12 @@ logging:
   #linux
   path: /opt/log/clams
 
+
 shiro:
   ehcache:
     #linux
     path: /opt/ehcache/clams
+
+spring:
+  datasource:
+    url: ENC(7nxpV2CFaWEPDOiMblErOK8q/ibFyFA2B85g8nOwoMrgGWe0MHV3zR659y2q1AWJ05S2XEV1sBkbIxk+FGu3W+gaOkEMsYKe)

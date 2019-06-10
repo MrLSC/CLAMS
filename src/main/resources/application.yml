@@ -6,9 +6,11 @@ server:
     uri-encoding: UTF-8
 
 spring:
+  jmx:
+    enabled: false
   profiles:
     #dev 开发环境  test 测试环境  prod 生产环境
-    active: prod
+    active: dev
   http:
     encoding:
       force: true
@@ -21,6 +23,13 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
+  redis:
+    host: ENC(GXzRhlqItb/UZntwD6Bydcpp27xewMiy)
+    port: ENC(h4upx+ijNJTFAUvWlIcumw==)
+    password: ENC(wZ/xt8GukAH6m8qtGBRlGRA5qNUISr9A5/v6NUbBXXBdAfgb4vv7oEc4XPeHeLnB)
+    jedis:
+      pool:
+        max-active: 8
 
 mybatis:
   mapper-locations: classpath:com/winconlab/clams/mapper/*.xml

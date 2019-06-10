@@ -9,11 +9,14 @@ import com.winconlab.clams.service.SysUserService;
 import com.winconlab.clams.utils.IdUtil;
 import com.winconlab.clams.utils.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@CacheConfig(cacheNames = "sysUser")
 @Service
 public class SysUserServiceImpl implements SysUserService {
 
@@ -26,6 +29,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private SysUserRoleMapper sysUserRoleMapper;
 
+    @Cacheable(cacheNames = "user", key = "#root.method+'['+#username+']'")
     @Override
     public SysUser findSysUserByUsername(String username) {
         SysUserExample sysUserExample = new SysUserExample();
@@ -36,6 +40,7 @@ public class SysUserServiceImpl implements SysUserService {
             return sysUsers.get(0);
         return null;
     }
+
 
     @Transactional
     @Override
