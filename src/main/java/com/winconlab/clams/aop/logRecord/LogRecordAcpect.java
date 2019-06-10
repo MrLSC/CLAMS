@@ -1,5 +1,6 @@
 package com.winconlab.clams.aop.logRecord;
 
+import com.winconlab.clams.utils.LogBackUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -31,7 +32,7 @@ public class LogRecordAcpect {
     @AfterReturning(pointcut = "addServicePointcut()", returning = "ret")
     public void addServiceAdvice(JoinPoint joinPoint, Object ret) {
         //处理添加操作日志
-        System.out.println(joinPoint.getSignature().getDeclaringTypeName());
+        LogBackUtil.info(joinPoint.getSignature().getDeclaringTypeName());
     }
 
     @AfterReturning(pointcut = "updateServicePointcut()", returning = "ret")
@@ -45,12 +46,12 @@ public class LogRecordAcpect {
 //        String username = "";
 //        SysUser user = (SysUser) SecurityUtils.getSubject().getPrincipal();
 //        if (user != null && !StringUtils.isEmpty(username = user.getUsername())) {
-//            System.out.println(username + "--" + user.getUsername());
+//            LogBackUtil.info(username + "--" + user.getUsername());
 //        }
 //        //处理查找操作日志
-//        System.out.println(joinPoint.getSignature().getDeclaringTypeName());
+//        LogBackUtil.info(joinPoint.getSignature().getDeclaringTypeName());
 //        if (joinPoint.getSignature().getDeclaringTypeName().contains("SysUserServiceImpl")) {
-//            System.out.println("用户查找操作");
+//            LogBackUtil.info("用户查找操作");
 //        }
 //    }
 

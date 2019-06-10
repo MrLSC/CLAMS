@@ -1,6 +1,10 @@
 package com.winconlab.clams;
 
+import com.winconlab.clams.utils.JasyptEncrypt;
+import org.jasypt.encryption.StringEncryptor;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,6 +17,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import java.nio.charset.Charset;
 import java.util.List;
 
+@EnableAutoConfiguration
+@ComponentScan
 @EnableTransactionManagement
 @Configuration
 //@EnableWebMvc
@@ -46,5 +52,11 @@ public class WebConfig implements WebMvcConfigurer {
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         return resolver;
+    }
+
+    @Bean("jasyptStringEncryptor")
+    public StringEncryptor stringEncryptor() {
+        JasyptEncrypt jasyptEncrypt = new JasyptEncrypt();//调用我们自己实现的类即可
+        return jasyptEncrypt;
     }
 }
